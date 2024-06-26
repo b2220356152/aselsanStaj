@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.420f919e.css",
+    "main.js": "/static/js/main.cd1af946.js",
+    "static/js/787.e7b59482.chunk.js": "/static/js/787.e7b59482.chunk.js",
+    "static/media/MISSILE-PENDING.png": "/static/media/MISSILE-PENDING.4aedcc01cafd02fa42c9.png",
+    "static/media/FIXED WING-PENDING.png": "/static/media/FIXED WING-PENDING.073f5133a1d188035019.png",
+    "static/media/ROTATING WING-PENDING.png": "/static/media/ROTATING WING-PENDING.88e27574a6a94090e8d6.png",
+    "static/media/UAV-PENDING.png": "/static/media/UAV-PENDING.e64236f3bbb81683abf1.png",
+    "static/media/UNKNOWN-PENDING.png": "/static/media/UNKNOWN-PENDING.abcaf2dbdfe72b4a6c66.png",
+    "static/media/MISSILE-UNKNOWN.png": "/static/media/MISSILE-UNKNOWN.6af3528da1ddec38ef66.png",
+    "static/media/FIXED WING-UNKNOWN.png": "/static/media/FIXED WING-UNKNOWN.a8a013d2f28db23d8d1f.png",
+    "static/media/ROTATING WING-UNKNOWN.png": "/static/media/ROTATING WING-UNKNOWN.a869fb48cd6178957f8e.png",
+    "static/media/UAV-UNKNOWN.png": "/static/media/UAV-UNKNOWN.661d8b980cca1abb17bb.png",
+    "static/media/UNKNOWN-UNKNOWN.png": "/static/media/UNKNOWN-UNKNOWN.cfad14730f6c07f05c11.png",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.420f919e.css.map": "/static/css/main.420f919e.css.map",
+    "main.cd1af946.js.map": "/static/js/main.cd1af946.js.map",
+    "787.e7b59482.chunk.js.map": "/static/js/787.e7b59482.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.420f919e.css",
+    "static/js/main.cd1af946.js"
+  ]
+}

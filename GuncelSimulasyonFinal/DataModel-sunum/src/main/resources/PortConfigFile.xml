@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="queueType" class="com.bekiremirhanakay.Infrastructure.rabbitmq.RabbitMQ" />
+
+    <bean id="fileType" class="com.bekiremirhanakay.Infrastructure.dataReaders.PortDataProvider">
+    </bean>
+    <bean id="fileType2" class="com.bekiremirhanakay.Infrastructure.dataReaders.CsvDataProvider"></bean>
+    <bean id="portNumber" class="com.bekiremirhanakay.Infrastructure.Config.AppProperties">
+        <property name="port"
+                  value="9080"/>
+    </bean>
+    <bean id="DataProviderServerType" class="com.bekiremirhanakay.Core.DataProviderServer" >
+        <constructor-arg index="0" ref="fileType2"/>
+        <constructor-arg index="1" value="2"/>
+    </bean>
+</beans>
