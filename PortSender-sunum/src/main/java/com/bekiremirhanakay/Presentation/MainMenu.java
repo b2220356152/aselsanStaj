@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 
 public class MainMenu {
 
@@ -118,6 +119,39 @@ public class MainMenu {
                     System.out.println(model.getColumnCount());
                 }
 
+                int number1;
+                int number2;
+                String tempLng = txtLng.getText();
+                String tempLat = txtLng.getText();
+                for(int i=0;i<50;i++){
+                    number1 = Integer.valueOf(tempLng);
+                    number1++;
+                    tempLng = String.valueOf(number1);
+
+                    number2 = Integer.valueOf(tempLat);
+                    number2++;
+                    tempLat = String.valueOf(number2);
+
+                    getTable().setModel(model);
+                    setData(new TraceData());
+                    getData().setDeviceID("A205");
+                    getData().setFlightID(txtFID.getText());
+                    getData().setLatitude(tempLat); // latitude güncelleme
+                    getData().setLongitude(tempLng); // longitude güncelleme
+                    getData().setVelocity(txtVelocity.getText());
+                    getData().setType(txtType.getSelectedItem().toString());
+                    getData().setDataType("Track");
+                    getData().setStatus(txtStatus.getSelectedItem().toString());
+
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(200);
+                    } catch (InterruptedException exx) {
+                        exx.printStackTrace();
+                    }
+
+                }
+
+                /*
                 getTable().setModel(model);
                 setData(new TraceData());
                 getData().setDeviceID("A205");
@@ -128,6 +162,7 @@ public class MainMenu {
                 getData().setType(txtType.getSelectedItem().toString());
                 getData().setDataType("Track");
                 getData().setStatus(txtStatus.getSelectedItem().toString());
+                */
 
             }
         });

@@ -181,7 +181,7 @@ public class RandomTraceMenu {
 
                         temp = Double.parseDouble(markers.get(t).get(1)) + value;
                         markers.get(t).set(1,String.format(Locale.US,"%.2f",temp));
-                        System.out.println("lat : " + lat + " lng : " + lng + " value = " + value);
+                        System.out.println("lat : " + markers.get(t).get(0) + " lng : " + markers.get(t).get(1) + " value = " + value);
                         data = new TraceData();
                         data.setDeviceID("A205");
                         data.setFlightID(String.valueOf(idParser));

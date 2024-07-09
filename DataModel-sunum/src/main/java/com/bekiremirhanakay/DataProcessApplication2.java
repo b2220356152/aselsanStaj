@@ -71,7 +71,6 @@ public class DataProcessApplication2 implements IDataProcess {
         } catch (TimeoutException e) {
             throw new RuntimeException(e);
         }
-
     }
 
 

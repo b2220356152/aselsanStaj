@@ -18,7 +18,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.Collections;
-import java.util.concurrent.TimeoutException;
+
 
 @SpringBootApplication
 @PropertySource("classpath:application.properties")
@@ -39,7 +39,7 @@ public class DataProcessApplicationPort implements IDataProcess {
         IDataProvider data = (IDataProvider)configApp.getValue("PortConfigFile","fileType");
         data.open();
         try {
-            data.process(); // veri dosyaldan çekilip işlenir
+            data.process(); // veri dosyadan çekilip işlenir
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (SAXException e) {
@@ -68,10 +68,8 @@ public class DataProcessApplicationPort implements IDataProcess {
 
     }
 
-
     public ClassPathXmlApplicationContext getAppContext() {
         return appContext;
     }
-
 
 }
