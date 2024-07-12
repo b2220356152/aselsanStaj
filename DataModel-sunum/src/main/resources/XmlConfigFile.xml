@@ -7,7 +7,7 @@
     <bean id="fileType" class="com.bekiremirhanakay.Infrastructure.dataReaders.XmlDataProvider">
 
         <property name="FilePath"
-                  value="C:\Users\kutayhantuna\Desktop\stajEdited\DataModel-sunum\src\main\resources\datasets.xml"/>
+                  value="C:\Users\stajyer\Desktop\Aselsan\aselsanStaj\DataModel-sunum\src\main\resources\datasets.xml"/>
     </bean>
     <bean id="portNumber" class="com.bekiremirhanakay.Infrastructure.Config.AppProperties">
         <property name="port"

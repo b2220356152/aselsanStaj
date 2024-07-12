@@ -94,7 +94,6 @@ public class RabbitMQListner implements MessageListener {
 		processedResult = result.into(new ArrayList<Document>());
 
 
-
 	}
 
 	@RabbitListener(queues="QueryReplyQueue", exclusive = true)
@@ -310,10 +309,6 @@ public class RabbitMQListner implements MessageListener {
 		}
 	}
 
-
-
-
-
 	@Scheduled(fixedDelay = 100)
 	public void send(){
 	if(processedResult!=null && processedResult.size()>0){
@@ -329,29 +324,6 @@ public class RabbitMQListner implements MessageListener {
 		queueQueryReply.publish(sendString);
 	}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	@Override
 	public void onMessage(Message message) {
