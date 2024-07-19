@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DataModel-sunum/DataModel.iml" filepath="$PROJECT_DIR$/DataModel-sunum/DataModel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PortSender-sunum/PortSender.iml" filepath="$PROJECT_DIR$/PortSender-sunum/PortSender.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/stajEdited.iml" filepath="$PROJECT_DIR$/.idea/stajEdited.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../frontend2.iml" filepath="$PROJECT_DIR$/../frontend2.iml" />
     </modules>
   </component>
 </project>
