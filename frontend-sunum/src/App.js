@@ -43,6 +43,7 @@ var stompClient = "";
 var socket = "";
 let y=9;
 let connection = signalRConnection.getConnection();
+let isEventListenerAdded = false;
 let markers = [];
 var tmp = true;
 let latitude = 39.772790
@@ -203,10 +204,10 @@ function contentMenu(){
         }
         let index = getIndex(id);
 
-        latitude=dto.lat
-        let stat = dto.status;
-        longitude =dto.lng;
-        statusV = require("./assets/" +dto.type + "-" + dto.status +".png")
+        latitude=dto.Latitude
+        let stat = dto.Status;
+        longitude =dto.Longitude;
+        statusV = require("./assets/" +dto.Type + "-" + dto.Status +".png")
 
         markers.at(index).lat = latitude;
         markers.at(index).lng = longitude;
@@ -289,50 +290,57 @@ function contentMenu(){
         try {
             await signalRConnection.start();
             console.log('Connected!');
-            // Subscribe to the ReceiveMessage event
-            connection.on("ReceiveMessage", (message) => {
-                let dto = JSON.parse(message);
-                let id = dto.id;
-                let type = dto.type;
-                let vel = dto.velocity;
-                let dev = dto.device;
     
-                let found = markers.find(obj => obj.id === id);
-                send(dto, id);
+            if (!isEventListenerAdded) {
+                // Subscribe to the ReceiveMessage event
+                connection.on("ReceiveMessage", (message) => {
+                    let dto = JSON.parse(message);
+                    let id = dto.FlightId;
+                    let type = dto.Type;
+                    let vel = dto.velocity;
+                    let dev = dto.device;
     
-                if (typeof (found) === 'undefined') {
-                    var initialvalues = {
-                        id: dto.FlightId,
-                        lat: dto.Latitude,
-                        lng: dto.Longitude,
-                        type: dto.Type,
-                        device: dev,
-                        velocity: vel,
-                        color: 'white',
-                        positions: [[dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude]],
-                        status: L.icon({
-                            iconUrl: statusV,
-                            shadowUrl: leafShadow,
-                            iconSize: [38, 45], // size of the icon
-                            shadowSize: [0, 0], // size of the shadow
-                            iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
-                            shadowAnchor: [0, 0],  // the same for the shadow
-                            popupAnchor: [-3, -86]
-                        })
-                    };
-                    markers.push(initialvalues);
-                    setmarkers([...markers, initialvalues]);
-                }
-                showMessage(dto, id);
-            });
+                    let found = markers.find(obj => obj.id === id);
+                    send(dto, id);
+    
+                    if (typeof (found) === 'undefined') {
+                        var initialvalues = {
+                            id: dto.FlightId,
+                            lat: dto.Latitude,
+                            lng: dto.Longitude,
+                            type: dto.Type,
+                            device: dev,
+                            velocity: vel,
+                            color: 'white',
+                            positions: [[dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude]],
+                            status: L.icon({
+                                iconUrl: statusV,
+                                shadowUrl: leafShadow,
+                                iconSize: [38, 45], // size of the icon
+                                shadowSize: [0, 0], // size of the shadow
+                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
+                                shadowAnchor: [0, 0],  // the same for the shadow
+                                popupAnchor: [-3, -86]
+                            })
+                        };
+                        markers.push(initialvalues);
+                        setmarkers([...markers, initialvalues]);
+                    }
+                    showMessage(dto, id);
+                });
+    
+                isEventListenerAdded = true;
+            }
         } catch (e) {
             console.error('Connection failed: ', e);
             setTimeout(startConnection, 5000); // Retry connection after 5 seconds
         }
     }
-       
-      
+    
+    // Call connect to start the connection
     connect();
+
+
     useEffect(() => {
         setTimeout(() => {
             setAlert(false);
