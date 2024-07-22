@@ -1,7 +1,5 @@
 function MarkerList(props){
     return (
-
-
                     <ul className="list-group">
                         {
                             <table className="table table-striped">
@@ -28,8 +26,6 @@ function MarkerList(props){
 
                                 </tbody>
                             </table>
-
-
                         }
                     </ul>
                 

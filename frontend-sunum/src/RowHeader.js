@@ -28,10 +28,12 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import {MapContainer, Marker, Popup, TileLayer, Tooltip,Polyline} from "react-leaflet";
 import B from "./b";
 import {Button} from "bootstrap/js/index.esm";
+import * as signalR from '@microsoft/signalr';
 
 var stompClient = "";
 var socket = "";
 let y=9;
+let connection;
 
 let latitude = 39.772790
 let longitude=35.772790
@@ -238,204 +240,60 @@ function App() {
         setupdated(true);
     }
 
-    function connect(){
-        //console.log(socket.connected)
-        if(stompClient.connected && socket){
-            //console.log("lşaskfşls")
-        }else{
-
-            socket = new SockJS("http://localhost:10100/our-websocket")
-            stompClient = Stomp.over(socket);
-            stompClient.connect({}, function (frame) {
-
-                //console.log("Connected: " + frame);
-                stompClient.subscribe("/topic/csv", function (message) {
-                    let dto = JSON.parse(message.body)
-                    let id=dto.id
-                    let type=dto.type;
-                    let vel = dto.velocity
-                    let dev= dto.device;
-
-                    let found = markers.find(obj => {
-                        return obj.id === id;
-                    });
-                    if(typeof(found) === 'undefined'){
-                        var initialvalues = {
-                            id: id,
-                            lat: latitude,
-                            lng: longitude,
-                            type:type,
-                            device:dev,
-                            velocity:vel,
-                            status: L.icon({
-                                iconUrl: statusV,
-                                shadowUrl: leafShadow,
-                                iconSize: [38, 45], // size of the icon
-                                shadowSize: [0, 0], // size of the shadow
-                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
-                                shadowAnchor: [0, 0],  // the same for the shadow
-                                popupAnchor: [-3, -86]
-                            })
-                        };
-                        markers.push(initialvalues);
-                        setmarkers([...markers, initialvalues]);
-
-                    }
-                    showMessage(dto, id);
-
-                });
-                stompClient.subscribe("/topic/xml", function (message) {
-                    let dto = JSON.parse(message.body)
-                    let id=dto.id;
-                    let type=dto.type;
-                    let vel = dto.velocity;
-                    let dev= dto.device;
-                    let found = markers.find(obj => {
-                        return obj.id === id;
-                    });
-                    if(typeof(found) === 'undefined'){
-                        var initialvalues2 = {
-                            id: id,
-                            lat: latitude,
-                            type:type,
-                            lng: longitude,
-                            velocity:vel,
-                            device:dev,
-                            status: L.icon({
-                                iconUrl: statusV,
-                                shadowUrl: leafShadow,
-                                iconSize: [38, 45], // size of the icon
-                                shadowSize: [0, 0], // size of the shadow
-                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
-                                shadowAnchor: [0, 0],  // the same for the shadow
-                                popupAnchor: [-3, -86]
-                            })
-                        };
-                        markers.push(initialvalues2);
-                        setmarkers((markers) => [...markers, initialvalues2]);
-
-                    }
-
-                    //console.log(message.body)
-                    showMessage(dto, id);
-
-                });
-                stompClient.subscribe("/topic/port", function (message) {
-                    let dto = JSON.parse(message.body)
-                    let id=dto.id;
-                    let type=dto.type;
-                    let vel = dto.velocity
-                    let dev= dto.device;
-                    let found = markers.find(obj => {
-                        return obj.id === id;
-                    });
-                    if(typeof(found) === 'undefined'){
-                        var initialvalues3 = {
-                            id: id,
-                            lat: latitude,
-                            type:type,
-                            lng: longitude,
-                            velocity: vel,
-                            device:dev,
-                            status: L.icon({
-                                iconUrl: statusV,
-                                shadowUrl: leafShadow,
-                                iconSize: [38, 45], // size of the icon
-                                shadowSize: [0, 0], // size of the shadow
-                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
-                                shadowAnchor: [0, 0],  // the same for the shadow
-                                popupAnchor: [-3, -86]
-                            })
-                        };
-                        markers.push(initialvalues3);
-                        setmarkers((markers) => [...markers, initialvalues3]);
-
-                    }
-
-                    //console.log("-> <- " + JSON.parse(message.body).velocity)
-                    showMessage(dto, id);
-
-                });
-                stompClient.subscribe("/topic/connect-req", function (message) {
-
-                    let dto = JSON.parse(message.body)
-                    setdev(dto.deviceID)
-                    let types = dto.dataType
-                    ////console.log(JSON.parse(message.body).deviceID)
-                    let devId = dto.deviceID;
-                    //connections.push(devId);
-                    //console.log(types)
-                    if(types==="Close"){
-                        const index = connections.indexOf(devId);
-                        setconnections(connections.filter((obj) => obj !== devId))
-
-                        setAlertClosed(true);
-                    }
-                    else{
-                        let found = connections.find(obj => {
-                            return obj === devId;
-                        });
-                        //console.log(typeof(found) === 'undefined')
-                        if(typeof(found) === 'undefined'){
-                            connections.push(devId) //(connections) => [...connections,devId]
-                            setconnections(connections);
-
-                            setAlert(true)
-                        }
-                    }
-
-
-                });
-                stompClient.subscribe("/topic/replay", function (message) {
-
-                    //console.log(message.body)
-                    setmarkers([])
-                    markers=[]
-                    replayMarkers=[]
-                    setreplayMarkers(replayMarkers)
-
-                });
-                stompClient.subscribe("/topic/query", function (message) {
-                    let dto = JSON.parse(message.body)
-                    let id=dto.id;
-                    //console.log("->" + id + " " + JSON.parse(message.body).lat + " " + JSON.parse(message.body).lng)
-                    let type=dto.type;
-                    let vel = dto.velocity
-                    let dev= dto.device;
-                    let found = replayMarkers.find(obj => {
-                        return obj.id === id;
-                    });
-                    if(typeof(found) === 'undefined'){
-                        var initialvalues3 = {
-                            id: id,
-                            lat: latitude,
-                            type:type,
-                            lng: longitude,
-                            velocity: vel,
-                            device:dev,
-                            status: L.icon({
-                                iconUrl: statusV,
-                                shadowUrl: leafShadow,
-                                iconSize: [38, 45], // size of the icon
-                                shadowSize: [0, 0], // size of the shadow
-                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
-                                shadowAnchor: [0, 0],  // the same for the shadow
-                                popupAnchor: [-3, -86]
-                            })
-                        };
-                        replayMarkers.push(initialvalues3);
-                        setreplayMarkers((replayMarkers) => [...replayMarkers, initialvalues3]);
-
-
-                    }
-                    showMessageReplay(dto, id);
-
-                });
+    async function connect() {
+        // Create a connection
+        connection = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:7045/myhub")
+            .withAutomaticReconnect()
+            .build();
+    
+        try {
+            // Start the connection
+            connection.start();
+            console.log('Connected!');
+    
+            // Subscribe to the ReceiveMessage event
+            connection.on("ReceiveMessage", (message) => {
+                console.log(message);    
+                let dto = JSON.parse(message);
+                let id = dto.id;
+                let type = dto.type;
+                let vel = dto.velocity;
+                let dev = dto.device;
+    
+                let found = markers.find(obj => obj.id === id);
+              
+    
+                if (typeof (found) === 'undefined') {
+                       
+                    var initialvalues = {
+                        id: id,
+                        lat: dto.Latitude,
+                        lng: dto.Longitude,
+                        type: type,
+                        device: dev,
+                        velocity: vel,
+                        color: 'white',
+                        positions: [[dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude]],
+                        status: L.icon({
+                            iconUrl: statusV,
+                            shadowUrl: leafShadow,
+                            iconSize: [38, 45], // size of the icon
+                            shadowSize: [0, 0], // size of the shadow
+                            iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
+                            shadowAnchor: [0, 0],  // the same for the shadow
+                            popupAnchor: [-3, -86]
+                        })
+                    };
+                    markers.push(initialvalues);
+                    setmarkers([...markers, initialvalues]);
+                }
+                showMessage(dto, id);
             });
-
+    
+        } catch (e) {
+            console.error('Connection failed: ', e);
         }
-
-
     }
 
 
@@ -784,7 +642,7 @@ function App() {
 
 
                     <div className="btn-group dropup"  style={{display:'block',border: 'outset',position: 'fixed',left: '0%',top: '93%'}} >
-                        <button type="button" className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" className="btn btn-secondary dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Show Info
                         </button>
                         <div className="dropdown-menu">
@@ -795,7 +653,7 @@ function App() {
                     </div>
 
                     <div className="btn-group dropup"   style={{display:'block',border: 'outset',position: 'fixed',left: '6%',top: '93%'}} data-target="#navbarNavDropdown">
-                        <button type="button" className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" className="btn btn-secondary dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Map Type
                         </button>
                         <div className="dropdown-menu">
@@ -832,5 +690,55 @@ function App() {
 export default App;
 //style={{display:'inline-block',width:'200px', left: '770px',top: '10px' ,height:'170px'} }
 
+
+ // function connect(){
+        
+    //         socket = new SockJS("https://localhost:7045/myhub")
+    //         stompClient = Stomp.over(socket);
+    //         stompClient.connect({}, function (frame) {
+    //             stompClient.subscribe("ReceiveMessage", function (message) {
+    //                 let dto = JSON.parse(message.body)
+    //                 let id=dto.id
+    //                 let type=dto.type;
+    //                 let vel = dto.velocity
+    //                 let dev= dto.device;
+
+    //                 let found = markers.find(obj => {
+    //                     return obj.id === id;
+    //                 });
+    //                 if(typeof(found) === 'undefined'){
+    //                     var initialvalues = {
+    //                         id: id,
+    //                         lat: latitude,
+    //                         lng: longitude,
+    //                         type:type,
+    //                         device:dev,
+    //                         velocity:vel,
+    //                         color:'white',
+    //                         positions: [[latitude,longitude],[latitude,longitude],[latitude,longitude]],
+    //                         status: L.icon({
+    //                             iconUrl: statusV,
+    //                             shadowUrl: leafShadow,
+    //                             iconSize: [38, 45], // size of the icon
+    //                             shadowSize: [0, 0], // size of the shadow
+    //                             iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
+    //                             shadowAnchor: [0, 0],  // the same for the shadow
+    //                             popupAnchor: [-3, -86]
+    //                         })
+    //                     };
+    //                     markers.push(initialvalues);
+    //                     setmarkers([...markers, initialvalues]);
+
+    //                 }
+    //                 showMessage(dto, id);
+
+    //             });
+                
+    //         });
+
+        
+
+
+    // }
 
 

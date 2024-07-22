@@ -36,15 +36,13 @@ import {MapContainer, Marker, Popup, TileLayer, Tooltip,Polyline,FeatureGroup} f
 import B from "./b";
 import {Button} from "bootstrap/js/index.esm";
 import * as signalR from '@microsoft/signalr';
-import signalRConnection from "./components/signalRConnection";
-// import RNFS from 'react-native-fs';
 
 var stompClient = "";
 var socket = "";
 let y=9;
-let connection = signalRConnection.getConnection();
+let connection;
 let markers = [];
-var tmp = true;
+
 let latitude = 39.772790
 let longitude=35.772790
 let statusV=friend
@@ -187,7 +185,7 @@ function contentMenu(){
         setIsReplay(false)
 
 
-        connection.send("/ws/csv",{},"play");
+        stompClient.send("/ws/csv",{},"play");
     }
     const handleChange = (event) => {
         setQuery(event.target.value);
@@ -251,88 +249,59 @@ function contentMenu(){
         setreplayMarkers(replayMarkers)
         setupdated(true);
     }
-   
-    async function send(dto, id) {
+    async function connect() {
+        // Create a connection
+        connection = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:7045/myhub")
+            .withAutomaticReconnect()
+            .build();
+    
         try {
-            const jsonString = JSON.stringify(dto); // DTO objesini stringe çevir
-            const response = await fetch('https://localhost:7045/api/Messages/writeToFile', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: jsonString, // String formatında JSON veriyi gönder
-            });
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const result = await response.text();
-            console.log(result); // Sunucu cevabını logla
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
-    function connect() {
-        if (connection && connection.state === signalR.HubConnectionState.Connected) {
-            console.log('Already connected');
-            return;
-        }
-    
-        connection.onclose(async () => {
-            console.log('Connection closed. Reconnecting...');
-            await startConnection();
-        });
-    
-        startConnection();
-    }
-    
-    async function startConnection() {
-        try {
-            await signalRConnection.start();
+            // Start the connection
+            await connection.start();
             console.log('Connected!');
+    
             // Subscribe to the ReceiveMessage event
             connection.on("ReceiveMessage", (message) => {
-                let dto = JSON.parse(message);
-                let id = dto.id;
-                let type = dto.type;
-                let vel = dto.velocity;
-                let dev = dto.device;
+                console.log(message);    
+                // let dto = JSON.parse(message);
+                // let id = dto.id;
+                // let type = dto.type;
+                // let vel = dto.velocity;
+                // let dev = dto.device;
     
-                let found = markers.find(obj => obj.id === id);
-                send(dto, id);
+                // let found = markers.find(obj => obj.id === id);
     
-                if (typeof (found) === 'undefined') {
-                    var initialvalues = {
-                        id: dto.FlightId,
-                        lat: dto.Latitude,
-                        lng: dto.Longitude,
-                        type: dto.Type,
-                        device: dev,
-                        velocity: vel,
-                        color: 'white',
-                        positions: [[dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude]],
-                        status: L.icon({
-                            iconUrl: statusV,
-                            shadowUrl: leafShadow,
-                            iconSize: [38, 45], // size of the icon
-                            shadowSize: [0, 0], // size of the shadow
-                            iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
-                            shadowAnchor: [0, 0],  // the same for the shadow
-                            popupAnchor: [-3, -86]
-                        })
-                    };
-                    markers.push(initialvalues);
-                    setmarkers([...markers, initialvalues]);
-                }
-                showMessage(dto, id);
+                // if (typeof (found) === 'undefined') {
+                //     var initialvalues = {
+                //         id: id,
+                //         lat: dto.latitude,
+                //         lng: dto.longitude,
+                //         type: type,
+                //         device: dev,
+                //         velocity: vel,
+                //         color: 'white',
+                //         positions: [[dto.latitude, dto.longitude], [dto.latitude, dto.longitude], [dto.latitude, dto.longitude]],
+                //         status: L.icon({
+                //             iconUrl: statusV,
+                //             shadowUrl: leafShadow,
+                //             iconSize: [38, 45], // size of the icon
+                //             shadowSize: [0, 0], // size of the shadow
+                //             iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
+                //             shadowAnchor: [0, 0],  // the same for the shadow
+                //             popupAnchor: [-3, -86]
+                //         })
+                //     };
+                //     markers.push(initialvalues);
+                //     setmarkers([...markers, initialvalues]);
+                // }
+                // showMessage(dto, id);
             });
+    
         } catch (e) {
             console.error('Connection failed: ', e);
-            setTimeout(startConnection, 5000); // Retry connection after 5 seconds
         }
     }
-       
-      
-    connect();
     useEffect(() => {
         setTimeout(() => {
             setAlert(false);
@@ -357,10 +326,10 @@ function contentMenu(){
             setconstantGUI(false)
         }, [selectedOption]);
 
-    // useEffect(() => {
-    //     connect();
-    //     return ()=> {};
-    // });
+    useEffect(() => {
+        connect();
+        return ()=> {};
+    }, []);
 
     useEffect(() => {
 

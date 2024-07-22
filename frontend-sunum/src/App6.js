@@ -36,15 +36,12 @@ import {MapContainer, Marker, Popup, TileLayer, Tooltip,Polyline,FeatureGroup} f
 import B from "./b";
 import {Button} from "bootstrap/js/index.esm";
 import * as signalR from '@microsoft/signalr';
-import signalRConnection from "./components/signalRConnection";
-// import RNFS from 'react-native-fs';
 
+let connection;
 var stompClient = "";
 var socket = "";
 let y=9;
-let connection = signalRConnection.getConnection();
-let markers = [];
-var tmp = true;
+
 let latitude = 39.772790
 let longitude=35.772790
 let statusV=friend
@@ -126,6 +123,11 @@ function contentMenu(){
     }
 
 }
+
+
+
+
+
     function MyComponent() {
         const map = useMap()
         if (go) {
@@ -135,6 +137,8 @@ function contentMenu(){
 
         return null
     }
+
+
     function openStreet(){
        setLayerMap("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
     }
@@ -187,7 +191,7 @@ function contentMenu(){
         setIsReplay(false)
 
 
-        connection.send("/ws/csv",{},"play");
+        stompClient.send("/ws/csv",{},"play");
     }
     const handleChange = (event) => {
         setQuery(event.target.value);
@@ -226,6 +230,8 @@ function contentMenu(){
         setmarkers(markers)
 
     }
+
+
     function showMessageReplay(dto,id){
         function getIndex(id) {
             return replayMarkers.findIndex(obj => obj.id === id);
@@ -251,88 +257,205 @@ function contentMenu(){
         setreplayMarkers(replayMarkers)
         setupdated(true);
     }
-   
-    async function send(dto, id) {
-        try {
-            const jsonString = JSON.stringify(dto); // DTO objesini stringe çevir
-            const response = await fetch('https://localhost:7045/api/Messages/writeToFile', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: jsonString, // String formatında JSON veriyi gönder
-            });
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const result = await response.text();
-            console.log(result); // Sunucu cevabını logla
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
-    function connect() {
-        if (connection && connection.state === signalR.HubConnectionState.Connected) {
-            console.log('Already connected');
-            return;
-        }
-    
-        connection.onclose(async () => {
-            console.log('Connection closed. Reconnecting...');
-            await startConnection();
-        });
-    
-        startConnection();
-    }
-    
-    async function startConnection() {
-        try {
-            await signalRConnection.start();
+
+    function connect(){
+
+
+            connection = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:7045/myhub")
+            .withAutomaticReconnect()
+            .build();
+
+            connection.start();
             console.log('Connected!');
-            // Subscribe to the ReceiveMessage event
             connection.on("ReceiveMessage", (message) => {
-                let dto = JSON.parse(message);
-                let id = dto.id;
-                let type = dto.type;
-                let vel = dto.velocity;
-                let dev = dto.device;
-    
-                let found = markers.find(obj => obj.id === id);
-                send(dto, id);
-    
-                if (typeof (found) === 'undefined') {
-                    var initialvalues = {
-                        id: dto.FlightId,
-                        lat: dto.Latitude,
-                        lng: dto.Longitude,
-                        type: dto.Type,
-                        device: dev,
-                        velocity: vel,
-                        color: 'white',
-                        positions: [[dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude], [dto.Latitude, dto.Longitude]],
-                        status: L.icon({
-                            iconUrl: statusV,
-                            shadowUrl: leafShadow,
-                            iconSize: [38, 45], // size of the icon
-                            shadowSize: [0, 0], // size of the shadow
-                            iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
-                            shadowAnchor: [0, 0],  // the same for the shadow
-                            popupAnchor: [-3, -86]
-                        })
-                    };
-                    markers.push(initialvalues);
-                    setmarkers([...markers, initialvalues]);
-                }
-                showMessage(dto, id);
-            });
-        } catch (e) {
-            console.error('Connection failed: ', e);
-            setTimeout(startConnection, 5000); // Retry connection after 5 seconds
-        }
+                    let dto = JSON.parse(message.body)
+                    let id=dto.id
+                    let type=dto.type;
+                    let vel = dto.velocity
+                    let dev= dto.device;
+
+                    let found = markers.find(obj => {
+                        return obj.id === id;
+                    });
+                    if(typeof(found) === 'undefined'){
+                        var initialvalues = {
+                            id: id,
+                            lat: latitude,
+                            lng: longitude,
+                            type:type,
+                            device:dev,
+                            velocity:vel,
+                            color:'white',
+                            positions: [[latitude,longitude],[latitude,longitude],[latitude,longitude]],
+                            status: L.icon({
+                                iconUrl: statusV,
+                                shadowUrl: leafShadow,
+                                iconSize: [38, 45], // size of the icon
+                                shadowSize: [0, 0], // size of the shadow
+                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
+                                shadowAnchor: [0, 0],  // the same for the shadow
+                                popupAnchor: [-3, -86]
+                            })
+                        };
+                        markers.push(initialvalues);
+                        setmarkers([...markers, initialvalues]);
+
+                    }
+                    showMessage(dto, id);
+            
+                });
+                stompClient.subscribe("/topic/xml", function (message) {
+                    let dto = JSON.parse(message.body)
+                    let id=dto.id;
+                    let type=dto.type;
+                    let vel = dto.velocity;
+                    let dev= dto.device;
+                    let found = markers.find(obj => {
+                        return obj.id === id;
+                    });
+                    if(typeof(found) === 'undefined'){
+                        var initialvalues2 = {
+                            id: id,
+                            lat: latitude,
+                            type:type,
+                            lng: longitude,
+                            velocity:vel,
+                            positions: [[latitude,longitude],[latitude,longitude],[latitude,longitude]],
+                            device:dev,
+                            color:'white',
+                            status: L.icon({
+                                iconUrl: statusV,
+                                shadowUrl: leafShadow,
+                                iconSize: [38, 45], // size of the icon
+                                shadowSize: [0, 0], // size of the shadow
+                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
+                                shadowAnchor: [0, 0],  // the same for the shadow
+                                popupAnchor: [-3, -86]
+                            })
+                        };
+                        markers.push(initialvalues2);
+                        setmarkers((markers) => [...markers, initialvalues2]);
+
+                    }
+
+                    showMessage(dto, id);
+
+                });
+                stompClient.subscribe("/topic/port", function (message) {
+                    let dto = JSON.parse(message.body)
+                    let id=dto.id;
+                    let type=dto.type;
+                    let vel = dto.velocity
+                    let dev= dto.device;
+                    let found = markers.find(obj => {
+                        return obj.id === id;
+                    });
+                    if(typeof(found) === 'undefined'){
+                        var initialvalues3 = {
+                            id: id,
+                            lat: latitude,
+                            type:type,
+                            lng: longitude,
+                            velocity: vel,
+                            positions: [[latitude,longitude],[latitude,longitude],[latitude,longitude]],
+                            device:dev,
+                            color:'white',
+                            status: L.icon({
+                                iconUrl: statusV,
+                                shadowUrl: leafShadow,
+                                iconSize: [38, 45], // size of the icon
+                                shadowSize: [0, 0], // size of the shadow
+                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
+                                shadowAnchor: [0, 0],  // the same for the shadow
+                                popupAnchor: [-3, -86]
+                            })
+                        };
+
+                        markers.push(initialvalues3);
+                        setmarkers((markers) => [...markers, initialvalues3]);
+
+                    }
+                    showMessage(dto, id);
+
+                });
+                stompClient.subscribe("/topic/connect-req", function (message) {
+
+                    let dto = JSON.parse(message.body)
+                    setdev(dto.deviceID)
+                    let types = dto.dataType
+                    let devId = dto.deviceID;
+                    if(types==="Close"){
+                        const index = connections.indexOf(devId);
+                        setconnections(connections.filter((obj) => obj !== devId))
+
+                        setAlertClosed(true);
+                    }
+                    else{
+                        let found = connections.find(obj => {
+                            return obj === devId;
+                        });
+                        if(typeof(found) === 'undefined'){
+                            connections.push(devId)
+                            setconnections(connections);
+
+                            setAlert(true)
+                        }
+                    }
+
+
+                });
+                stompClient.subscribe("/topic/replay", function (message) {
+                    setmarkers([])
+                    markers=[]
+                    replayMarkers=[]
+                    setreplayMarkers(replayMarkers)
+
+                });
+                stompClient.subscribe("/topic/query", function (message) {
+                    let dto = JSON.parse(message.body)
+                    let id=dto.id;
+                    let type=dto.type;
+                    let vel = dto.velocity
+                    let dev= dto.device;
+                    let found = replayMarkers.find(obj => {
+                        return obj.id === id;
+                    });
+                    if(typeof(found) === 'undefined'){
+                        var initialvalues3 = {
+                            id: id,
+                            lat: latitude,
+                            type:type,
+                            lng: longitude,
+                            velocity: vel,
+                            device:dev,
+                            status: L.icon({
+                                iconUrl: statusV,
+                                shadowUrl: leafShadow,
+                                iconSize: [38, 45], // size of the icon
+                                shadowSize: [0, 0], // size of the shadow
+                                iconAnchor: [22, 44], // point of the icon which will correspond to marker's location
+                                shadowAnchor: [0, 0],  // the same for the shadow
+                                popupAnchor: [-3, -86]
+                            })
+                        };
+                        replayMarkers.push(initialvalues3);
+                        setreplayMarkers((replayMarkers) => [...replayMarkers, initialvalues3]);
+
+
+                    }
+                    showMessageReplay(dto, id);
+
+                });
+            
+
+        
+
+
     }
-       
-      
-    connect();
+
+
+
     useEffect(() => {
         setTimeout(() => {
             setAlert(false);
@@ -357,10 +480,10 @@ function contentMenu(){
             setconstantGUI(false)
         }, [selectedOption]);
 
-    // useEffect(() => {
-    //     connect();
-    //     return ()=> {};
-    // });
+    useEffect(() => {
+        connect();
+        return ()=> {};
+    }, []);
 
     useEffect(() => {
 
@@ -430,6 +553,9 @@ function contentMenu(){
 
                 null}
 
+
+
+
             <MapContainer className="map" center={[state.centerTheMap.lat,state.centerTheMap.lng]} zoom='10' renderer={L.canvas()} preferCanvas={true} zoomControl={false} attributionControl={false}  >
 
                 <TileLayer preferCanvas={true} renderer={L.canvas()}
@@ -472,6 +598,8 @@ function contentMenu(){
 
                 <MyComponent />
 
+
+
                 { isReplay ?
                     replayMarkers.map(item =>
                         <Marker key={item.id}  eventHandlers={{
@@ -499,6 +627,8 @@ function contentMenu(){
                 }
 
             </MapContainer>
+
+
             <div id="myModal2" className="modal"  style={{display:'inline-block',height:'50px',width:'50px',position: "fixed",left: `${leftB}%`,top: '50%'}}>
                 <a className="nav-link" href="#"><i className={styleB} style={{color: '#B02929',position: "fixed",left: `${leftB}%`,top: '50%', fontSize: '60px'}} onClick={contentMenu}></i> </a>
             </div>
@@ -510,9 +640,15 @@ function contentMenu(){
 
                     <p style={{color:'white'}}>Track Info </p>
 
+
+
+
                     <div id="myModal2" className="modal"  style={{display:'inline-block',left: '84.5%',position: 'fixed',top: '5%',height:'300px',width:'300px'}}>
                         <MarkerList markers={markers}></MarkerList>
                     </div>
+
+
+
 
                     <p style={{color:'white',display:'inline-block',position: 'fixed',left: '84.5%',top: '35%',height:'%20',width:'300px'}}>Track Detail </p>
 
@@ -520,6 +656,9 @@ function contentMenu(){
                     <div style={{display:'inline-block',position: 'fixed',left: '84.5%',top: '40%',height:'%20',width:'300px'}}>
                         <TrackDetail id={id} type={type} velocity={velocity} device={device} goToTrack={goToTrack} closePop={closePop} width={'150'}> </TrackDetail>
                     </div>
+
+
+
 
                     <p style={{color:'white',position: 'fixed',left: '89.5%',top: '70%'}}>Connected Units </p>
 
@@ -530,6 +669,11 @@ function contentMenu(){
 
                 </div>
             </div>:null}
+
+
+
+
+
 
             { menu ? <div id="myModal3" className="modal"  style={ {display:'inline-block',width:'1000%',top: '92%'}}>
 

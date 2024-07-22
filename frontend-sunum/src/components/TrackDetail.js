@@ -2,8 +2,6 @@ import React from "react";
 function TrackDetail(props){
     let temp =props.width
         return (
-
-
                     <table  className="table table-striped" >
                         <tbody>
                         <tr>
