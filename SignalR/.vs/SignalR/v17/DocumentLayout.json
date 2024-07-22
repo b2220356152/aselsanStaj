@@ -1,0 +1,157 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\staj\\source\\repos\\SignalR\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|c:\\users\\staj\\source\\repos\\signalr\\signalr\\tcpdatareceiver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|solutionrelative:signalr\\tcpdatareceiver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|c:\\users\\staj\\source\\repos\\signalr\\signalr\\signalr.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|solutionrelative:signalr\\signalr.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|c:\\users\\staj\\source\\repos\\signalr\\signalr\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|solutionrelative:signalr\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|c:\\users\\staj\\source\\repos\\signalr\\signalr\\myhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|solutionrelative:signalr\\myhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|c:\\users\\staj\\source\\repos\\signalr\\signalr\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|solutionrelative:signalr\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|c:\\users\\staj\\source\\repos\\signalr\\signalr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|solutionrelative:signalr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|c:\\users\\staj\\source\\repos\\signalr\\signalr\\tracedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|solutionrelative:signalr\\tracedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|c:\\users\\staj\\source\\repos\\signalr\\signalr\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77007593-B76D-4AA0-B781-6DEAC6779BA4}|SignalR\\SignalR.csproj|solutionrelative:signalr\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "SignalR\\Controllers\\MessagesController.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "SignalR\\Controllers\\MessagesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAB4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T06:10:54.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SignalR.csproj",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\SignalR.csproj",
+              "RelativeDocumentMoniker": "SignalR\\SignalR.csproj",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\SignalR.csproj",
+              "RelativeToolTip": "SignalR\\SignalR.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-18T09:45:59.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TcpDataReceiver.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\TcpDataReceiver.cs",
+              "RelativeDocumentMoniker": "SignalR\\TcpDataReceiver.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\TcpDataReceiver.cs",
+              "RelativeToolTip": "SignalR\\TcpDataReceiver.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAIwC8AAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T09:49:43.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TraceData.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\TraceData.cs",
+              "RelativeDocumentMoniker": "SignalR\\TraceData.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\TraceData.cs",
+              "RelativeToolTip": "SignalR\\TraceData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T09:44:36.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SignalR\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SignalR\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvxoAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-18T08:01:06.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MyHub.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\MyHub.cs",
+              "RelativeDocumentMoniker": "SignalR\\MyHub.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\MyHub.cs",
+              "RelativeToolTip": "SignalR\\MyHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T07:48:22.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\Program.cs",
+              "RelativeDocumentMoniker": "SignalR\\Program.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\Program.cs",
+              "RelativeToolTip": "SignalR\\Program.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T07:47:49.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "SignalR\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\SignalR\\SignalR\\WeatherForecast.cs",
+              "RelativeToolTip": "SignalR\\WeatherForecast.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T07:47:50.758Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
