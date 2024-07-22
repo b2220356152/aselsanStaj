@@ -1,0 +1,251 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\staj\\source\\repos\\AppClient7\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\tcpdatasender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\tcpdatasender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\log20240705.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\log20240705.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\aircraftdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\aircraftdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\rabbitmqclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\rabbitmqclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\serilogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\serilogmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\data2.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\data2.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\configurationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\configurationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\mongodbmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\mongodbmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\rootobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\rootobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\log20240710.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\log20240710.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\log20240709.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\log20240709.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|c:\\users\\staj\\source\\repos\\appclient7\\appclient7\\log20240708.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0559A60D-F669-4CBD-9367-21EE3BFB4D57}|AppClient7\\AppClient7.csproj|solutionrelative:appclient7\\log20240708.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TcpDataSender.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\TcpDataSender.cs",
+              "RelativeDocumentMoniker": "AppClient7\\TcpDataSender.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\TcpDataSender.cs",
+              "RelativeToolTip": "AppClient7\\TcpDataSender.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADEAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T05:21:22.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\Program.cs",
+              "RelativeDocumentMoniker": "AppClient7\\Program.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\Program.cs",
+              "RelativeToolTip": "AppClient7\\Program.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAQwEAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T10:44:59.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AircraftData.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\AircraftData.cs",
+              "RelativeDocumentMoniker": "AppClient7\\AircraftData.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\AircraftData.cs",
+              "RelativeToolTip": "AppClient7\\AircraftData.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAA0wCwAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T10:46:01.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RabbitMqClient.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\RabbitMqClient.cs",
+              "RelativeDocumentMoniker": "AppClient7\\RabbitMqClient.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\RabbitMqClient.cs",
+              "RelativeToolTip": "AppClient7\\RabbitMqClient.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAYwJEAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T08:00:15.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\appsettings.json",
+              "RelativeDocumentMoniker": "AppClient7\\appsettings.json",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\appsettings.json",
+              "RelativeToolTip": "AppClient7\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-12T08:05:43.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "log20240705.json",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\log20240705.json",
+              "RelativeDocumentMoniker": "AppClient7\\log20240705.json",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\log20240705.json",
+              "RelativeToolTip": "AppClient7\\log20240705.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-05T12:50:21.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ConfigurationHelper.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\ConfigurationHelper.cs",
+              "RelativeDocumentMoniker": "AppClient7\\ConfigurationHelper.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\ConfigurationHelper.cs",
+              "RelativeToolTip": "AppClient7\\ConfigurationHelper.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAUwBIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T04:46:52.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MongoDbManager.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\MongoDbManager.cs",
+              "RelativeDocumentMoniker": "AppClient7\\MongoDbManager.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\MongoDbManager.cs",
+              "RelativeToolTip": "AppClient7\\MongoDbManager.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAA9wDgAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T04:44:45.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SerilogManager.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\SerilogManager.cs",
+              "RelativeDocumentMoniker": "AppClient7\\SerilogManager.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\SerilogManager.cs",
+              "RelativeToolTip": "AppClient7\\SerilogManager.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAYwDEAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T04:45:51.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "data2.json",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\data2.json",
+              "RelativeDocumentMoniker": "AppClient7\\data2.json",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\data2.json",
+              "RelativeToolTip": "AppClient7\\data2.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-12T12:10:40.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "log20240709.json",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\log20240709.json",
+              "RelativeDocumentMoniker": "AppClient7\\log20240709.json",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\log20240709.json",
+              "RelativeToolTip": "AppClient7\\log20240709.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-10T06:38:11.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "log20240708.json",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\log20240708.json",
+              "RelativeDocumentMoniker": "AppClient7\\log20240708.json",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\log20240708.json",
+              "RelativeToolTip": "AppClient7\\log20240708.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGsAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-10T06:39:25.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "log20240710.json",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\log20240710.json",
+              "RelativeDocumentMoniker": "AppClient7\\log20240710.json",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\log20240710.json",
+              "RelativeToolTip": "AppClient7\\log20240710.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-10T07:19:55.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RootObject.cs",
+              "DocumentMoniker": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\RootObject.cs",
+              "RelativeDocumentMoniker": "AppClient7\\RootObject.cs",
+              "ToolTip": "C:\\Users\\staj\\source\\repos\\AppClient7\\AppClient7\\RootObject.cs",
+              "RelativeToolTip": "AppClient7\\RootObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T10:46:46.579Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

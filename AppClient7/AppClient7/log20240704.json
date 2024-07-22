@@ -1,0 +1,5 @@
+{"Timestamp":"2024-07-04T15:01:41.0999882+03:00","Level":"Information","MessageTemplate":"Aircraft Data: Hex: 489223, Uti: 1719985967, Fli: ENT7132, Lat: 39.64188, Lon: 30.18957, Alt: 35175, Spd: 447"}
+{"Timestamp":"2024-07-04T15:01:41.1533446+03:00","Level":"Information","MessageTemplate":"Aircraft Data: Hex: 4B906D, Uti: 1719992524, Fli: PGT98DH, Lat: 39.36704, Lon: 30.01300, Alt: 26900, Spd: 430"}
+{"Timestamp":"2024-07-04T15:01:41.1548031+03:00","Level":"Information","MessageTemplate":"Aircraft Data: Hex: 4BAA0B, Uti: 1720003260, Fli: THY6LZ, Lat: 40.61115, Lon: 31.91669, Alt: 22675, Spd: 379"}
+{"Timestamp":"2024-07-04T15:01:41.1626151+03:00","Level":"Information","MessageTemplate":"Aircraft Data: Hex: 89645B, Uti: 1719997824, Fli: UAE6JL, Lat: 40.67846, Lon: 30.14199, Alt: 40000, Spd: 462"}
+{"Timestamp":"2024-07-04T15:02:15.6414554+03:00","Level":"Information","MessageTemplate":"Program cancelled."}

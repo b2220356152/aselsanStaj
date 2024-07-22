@@ -1,0 +1,2 @@
+2024-07-16 07:42:54.820 +03:00 [INF] Program cancelled.
+2024-07-16 09:47:36.660 +03:00 [INF] Program cancelled.
